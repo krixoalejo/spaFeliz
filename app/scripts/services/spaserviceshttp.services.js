@@ -1,20 +1,21 @@
 'use strict';
 
-angular.module('spafelizApp').factory('spaServices', spaServices);
-spaServices.$inject = ['spaServicesHttp', '$q'];
+angular.module('spafelizApp').service('spaServicesHttp', spaServicesHttp);
+spaServicesHttp.$inject = ['$http', '$q', 'httpConfig'];
 
-function spaServices(spaServicesHttp, $q){
+function spaServicesHttp($http, $q, httpConfig){
   var services = {
-    getAllServices: getAllServices,
-    getServiceById: getServiceById
+    getAll: getAll,
+    getById: getById
   }
 
   return services;
 
-  function getAllServices () {
+  function getAll () {
     var defered = $q.defer();
     var promise = defered.promise;
-    spaServicesHttp.getAll()
+    const url = httpConfig.url + httpConfig.services.getAll;
+    $http.get(url)
       .then(function (data) {
         defered.resolve(data);
       })
@@ -24,10 +25,11 @@ function spaServices(spaServicesHttp, $q){
     return promise;
   }
 
-  function getServiceById (id) {
+  function getById (id) {
     var defered = $q.defer();
     var promise = defered.promise;
-    spaServicesHttp.getById(id)
+    const url = httpConfig.url + httpConfig.services.getById + id;
+    $http.get(url)
       .then(function (data) {
         defered.resolve(data);
       })

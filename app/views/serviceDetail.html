@@ -1,0 +1,18 @@
+<div class="row marketing">
+ <div class="card md-12">
+   <div class="card-body col-md-6 imageItem"
+       ng-style="{'background-image':'url({{vm.service.image}})', 'background-position': 'center center', 'background-size': 'cover'}">
+     <div class="infoCard">
+        <h2 class="card-title">{{vm.service.name}}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">{{vm.service.cost}}</h6>
+        <p class="card-text">{{vm.service.description}}</p>
+        <span ng-if="vm.service.endHappy">Con final feliz.
+            <span class="glyphicon glyphicon-ok"></span>
+        </span>
+        <span ng-if="!vm.service.endHappy">Sin final feliz.
+            <span class="glyphicon glyphicon-remove"></span>
+        </span>
+     </div>
+   </div>
+ </div>
+</div>

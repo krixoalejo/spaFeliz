@@ -8,16 +8,19 @@ function mainCtrl (spaServices) {
 
   var vm = this;
   vm.$onInit = onInit;
-  vm.myName = 'Alejo';
   vm.loadSpaServices = loadSpaServices;
 
   function onInit(){
-    console.log('Hello!');
     vm.loadSpaServices();
   }
 
   function loadSpaServices () {
-    vm.serviceList = spaServices.getAllServices();
-    console.log(vm.serviceList);
+    spaServices.getAllServices()
+      .then(function (data) {
+        vm.serviceList = data.data;
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }
 }
