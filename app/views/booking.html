@@ -1,0 +1,48 @@
+<div class="container">
+  <br>
+  <form ng-submit="vm.submitBooking()">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="firstName">Primer nombre</label>
+        <input type="text" class="form-control" id="primerNombre" ng-model="vm.form.primerNombre"
+          placeholder="Primer nombre" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="lastName">Segundo nombre</label>
+        <input type="text" class="form-control" id="segundoNombre" ng-model="vm.form.segundoNombre"
+          placeholder="Segundo nombre">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="firstName">Primer apellido</label>
+        <input type="text" class="form-control" id="primerApellido" ng-model="vm.form.primerApellido"
+          placeholder="Primer apellido" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="lastName">Segundo apellido</label>
+        <input type="text" class="form-control" id="segundoApellido" ng-model="vm.form.segundoApellido"
+          placeholder="Segundo apellido">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="correo">Correo electrónico</label>
+      <input type="email" class="form-control" ng-model="vm.form.correo" id="correo" placeholder="Digite su Email">
+    </div>
+    <div class="form-group">
+      <label for="fechaReserva">Fecha de reserva</label>
+      <input type="date" class="form-control" ng-model="vm.form.fecha" id="fechaReserva" placeholder="Ingrese la fecha">
+    </div>
+    <div class="form-group">
+      <label for="horaReserva">Hora de reserva</label>
+      <input type="time" class="form-control" ng-model="vm.form.hora" id="horaReserva" placeholder="Ingrese la hora">
+    </div>
+    <div class="form-group">
+      <label for="tipoServicio">Tipo de servicio</label>
+      <select class="form-control" ng-model="vm.form.tipoServicio">
+        <option ng-repeat="service in vm.services" ng-value="{{service.id}}">{{service.name}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Reserva</button>
+  </form>
+</div>

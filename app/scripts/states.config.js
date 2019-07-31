@@ -18,16 +18,24 @@ function settings($stateProvider, $urlRouterProvider){
     controller: 'MainCtrl as vm'
   }
 
-  var aboutState = {
+  var deatilState = {
     name: 'home.detail',
     url: '/detail/{id}',
     templateUrl: 'views/serviceDetail.html',
     controller: 'DetailCtrl as vm'
   }
 
+  var bookingState = {
+    name: 'home.booking',
+    url: '/booking',
+    templateUrl: 'views/booking.html',
+    controller: 'BookingCtrl as vm'
+  }
+
   $stateProvider.state(homeState);
   $stateProvider.state(mainState);
-  $stateProvider.state(aboutState);
+  $stateProvider.state(deatilState);
+  $stateProvider.state(bookingState);
 
   $urlRouterProvider.when('', '/');
 }

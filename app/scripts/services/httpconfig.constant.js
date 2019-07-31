@@ -13,5 +13,11 @@ angular.module('spafelizApp')
     services: {
       getAll: 'services',
       getById: 'services/'
+    },
+    booking: {
+      saveBooking: 'booking'
+    },
+    httpStatus: {
+      OK: 200
     }
   });
